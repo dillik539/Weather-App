@@ -20,7 +20,9 @@ const getData = () =>{
         {
             displayWeatherData(data)
         })
-    .catch(err => cityName.innerText = `${city} Not Found!`)
+    .catch(err =>{
+        clearDisplayData(city)
+    })
 }
 
 const getCity = () => {
@@ -39,6 +41,16 @@ const displayWeatherData = (weatherData) =>{
     maxTemp.innerText = `${Math.floor(weatherData.main.temp_max)}`
     feelsLike.innerText = `${Math.floor(weatherData.main.feels_like)}`
     humidity.innerText = `${Math.floor(weatherData.main.humidity)}`
+}
+const clearDisplayData = (city) =>{
+    cityName.innerText = `${city} Not Found!`
+    weatherType.innerText = '----'
+    description.innerText = '--'
+    currentTemp.innerText = '--'
+    minTemp.innerText = '--'
+    maxTemp.innerText = '--'
+    feelsLike.innerText = '--'
+    humidity.innerText = '--'
 }
 
 submit.onclick = () => getData()
