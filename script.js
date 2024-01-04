@@ -1,6 +1,14 @@
 
-const apiKey = 'bc6c6d0406c5ecca7ea963f81b4b23bd'
-const submit = document.querySelector('.submit')
+    const apiKey = 'bc6c6d0406c5ecca7ea963f81b4b23bd'
+    const submit = document.querySelector('.submit')
+    const cityName = document.getElementById('city-name')
+    const weatherType = document.getElementById('weather-type')
+    const description = document.getElementById('desc')
+    const currentTemp = document.getElementById('temp')
+    const minTemp = document.getElementById('min-temp')
+    const maxTemp = document.getElementById('max-temp')
+    const feelsLike = document.getElementById('feels-like')
+    const humidity = document.getElementById('humidity')
 
 
 const getData = () =>{
@@ -12,23 +20,17 @@ const getData = () =>{
         {
             displayWeatherData(data)
         })
+    .catch(err => cityName.innerText = `${city} Not Found!`)
 }
 
 const getCity = () => {
-    const inputValue = document.querySelector('.inputValue')
-    const city = inputValue.value
-    inputValue.value = ''
+    const userInput = document.querySelector('.inputValue')
+    const city = userInput.value
+    userInput.value = ''
     return city
 }
+
 const displayWeatherData = (weatherData) =>{
-    const cityName = document.getElementById('city-name')
-    const weatherType = document.getElementById('weather-type')
-    const description = document.getElementById('desc')
-    const currentTemp = document.getElementById('temp')
-    const minTemp = document.getElementById('min-temp')
-    const maxTemp = document.getElementById('max-temp')
-    const feelsLike = document.getElementById('feels-like')
-    const humidity = document.getElementById('humidity')
     cityName.innerText = `${weatherData.name}`
     weatherType.innerText = `${weatherData.weather[0].main}`
     description.innerText = `${weatherData.weather[0].description}`
