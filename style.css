@@ -3,11 +3,12 @@
     padding: 10px;
     box-sizing: border-box;
 }
-.input{
-   
+.info{
+   font-family: sans-serif;
+   color: #f8b007;
 }
 body{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Times New Roman';
     background-color: #faf9f9;
 }
 input[type = "text"]{
@@ -16,7 +17,7 @@ input[type = "text"]{
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
     font-size: 20px;
-    background: rgb(207, 198, 198);
+    background: rgb(244, 241, 241);
     border: none;
     border-radius: 0.5rem;
 }
@@ -28,7 +29,7 @@ input[type = "submit"]{
     font-size: 20px;
     border: none;
     border-radius: 0.5rem;
-    background:rgb(207, 198, 198);
+    background:rgb(244, 241, 241);
 }
 .showWeatherInfo{
     

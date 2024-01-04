@@ -1,26 +1,40 @@
 
 const apiKey = 'bc6c6d0406c5ecca7ea963f81b4b23bd'
-const inputValue = document.querySelector('.inputValue')
 const submit = document.querySelector('.submit')
-const weatherInfoDiv = document.querySelector('.showWeatherInfo')
 
 
-const getData = () =>{
-    const city = inputValue.value
+const getData = (city) =>{
+    city = getCity()
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`
     fetch(url)
     .then(response => response.json())
     .then(data =>
         {
-            weatherInfoDiv.innerHTML = `<h2>${data.name}</h2>
-            <h3>Weather: ${data.weather[0].description}</h3>
-            <h3>Current Temperature: ${Math.floor(data.main.temp)}</h3>
-            <h3>Feels Like: ${Math.floor(data.main.feels_like)}</h3>
-            <h3>Maximum: ${Math.floor(data.main.temp_max)}</h3>
-            <h3>Minimum: ${Math.floor(data.main.temp_min)}</h3>
-            <h3>Humidity: ${Math.floor(data.main.humidity)}</h3>`
+            displayWeatherData(data)
         })
-        inputValue.value = ''
+}
+
+const getCity = () => {
+    const inputValue = document.querySelector('.inputValue')
+    const city = inputValue.value
+    inputValue.value = ''
+    return city
+}
+const displayWeatherData = (weatherData) =>{
+    const cityName = document.getElementById('city-name')
+    const weatherType = document.getElementById('weather-type')
+    const currentTemp = document.getElementById('temp')
+    const minTemp = document.getElementById('min-temp')
+    const maxTemp = document.getElementById('max-temp')
+    const feelsLike = document.getElementById('feels-like')
+    const humidity = document.getElementById('humidity')
+    cityName.innerText = `${weatherData.name}`
+    weatherType.innerText = `${weatherData.weather[0].main}`
+    currentTemp.innerText = `${Math.floor(weatherData.main.temp)}`
+    minTemp.innerText = `${Math.floor(weatherData.main.temp_min)}`
+    maxTemp.innerText = `${Math.floor(weatherData.main.temp_max)}`
+    feelsLike.innerText = `${Math.floor(weatherData.main.feels_like)}`
+    humidity.innerText = `${Math.floor(weatherData.main.humidity)}`
 }
 
 submit.onclick = () => getData()

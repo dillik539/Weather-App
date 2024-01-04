@@ -8,14 +8,22 @@
     <body>
         <div class="container">
             <div class="info">
-                <h3>Please enter a city in Search City field to get the current weather information. </h3>
+                <h1>Weather</h1>
             </div>
             <div class="input">
                 <input type="text" class="inputValue" placeholder="Search City">
                 <input type="submit" class="submit" value="Search">
             </div>
             <div class="showWeatherInfo">
-            
+                <h2 id="city-name" class="name">----</h2>
+                <h3 id="weather-type" class="weather-type">----</h3>
+                <ul class="list">
+                    <li>Current Temp: <span id="temp">--</span>°F</li>
+                    <li>Minimum Temp: <span id="min-temp">--</span>°F</li>
+                    <li>Maximum Temp: <span id="max-temp">--</span>°F</li>
+                    <li>Feels Like: <span id="feels-like">--</span>°F</li>
+                    <li>Humidity: <span id="humidity">--</span>%</li>
+                </ul>
             </div>
         </div>   
     </body>
