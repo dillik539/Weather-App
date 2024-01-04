@@ -31,8 +31,9 @@ input[type = "submit"]{
     border-radius: 0.5rem;
     background:rgb(244, 241, 241);
 }
-.showWeatherInfo{
-    
+.list{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container{
